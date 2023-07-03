@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
+    <title>Hello World!!</title>
+{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.css' %}">
+
+<style>
+    .item{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+    
+<center>
+    <nav class="nav item" style="background-color:orangered; ">
+        <a href="{% url 'admin:index' %}" class="nav-link btn btn-primary item1">Admin Page</a>
+        <a href="{% url 'home' %}" class="nav-link btn btn-primary">HOME Page</a>
+        <a href="{% url 'register' %}" class="nav-link btn btn-primary">Register Page</a>
+        
+        {% if user.is_authenticated %}
+        <a href="{% url 'change_password' %}" class="nav-link btn btn-primary">Change Password</a>
+        <a href="{% url 'user_logout' %}" class=" nav_link btn btn-primary">Log-out</a>
+
+
+
+        {% else %}
+        <a href="{% url 'user_login' %}" class="nav-link btn btn-primary" >Login Page</a>
+        {% endif %}
+    </nav>
+</center>
+
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/mdb.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>

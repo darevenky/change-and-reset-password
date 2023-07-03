@@ -1,0 +1,41 @@
+{% extends 'dummy.html' %}
+
+ {% block title %}
+        <title>HOME</title>
+{% endblock %}
+
+{% block body_block %}
+
+    <style>
+        h1{
+            position: relative;
+            top: 100px;
+            color:white;
+            display: inline;
+            background-color: black;
+        }
+        
+        span{
+            color: white;
+            background-color: blue;
+        }
+        #ab{
+            position: relative;
+            margin-bottom: 500px;
+            width: 15px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+
+    <center>
+
+        {% if username %}
+    
+            <h1 >Welcome To Home Page MR/MS <span>{{username}} </span></h1>
+        {% else %}
+        
+            <h1 id="a">Welcome To Home Page</h1>
+        {% endif %}
+    </center>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+    <title>Register Form</title>
+{% endblock %}
+
+
+
+{% block body_block %}
+
+<style>
+    form{
+        position: relative;
+        top: 5px;
+
+    }
+</style>
+
+    <center>
+        <form  method="POST" enctype="multipart/form-data" class="text-success bg-dark" >
+            {% csrf_token %}
+
+            {{ufo.as_p}}
+            {{pfo.as_p}}
+
+            <input type="submit" value="register" class="btn btn-primary">
+
+        </form>
+    </center>
+{% endblock %}
+    
